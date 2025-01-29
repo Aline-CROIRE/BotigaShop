@@ -1,0 +1,156 @@
+/* .footer{
+    background-color: rgb(43, 41, 41);
+} */
+ /* footer.css */
+ .footer {
+  background-color: rgb(43, 41, 41);
+  color: white;
+  padding: 4rem 1.5rem;
+  padding-top:40px ;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top:40px
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.section-description p {
+  font-size: 18px;
+  color: #9ca3af;
+  margin-bottom: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.email-signup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.email-input {
+  width: 100%;
+  flex-grow: 1;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #4b5563;
+  padding-bottom: 0.5rem;
+  color: white;
+}
+
+.email-input:focus {
+  width: 100%;
+  outline: none;
+  border-bottom-color: white;
+  
+}
+
+.submit-button {
+  background-color: rgb(43, 41, 41);
+  padding: 0.5rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 130px;
+  font-weight: lighter;
+  font-size: 16px;
+}
+
+.contact-info p{
+  color: #9ca3af;
+  margin-bottom: 1.5rem;
+  font-size: 18px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-info p {
+  margin-bottom: 0.5rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  color: #9ca3af;
+}
+
+.footer-bottom {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.column-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  color: #9ca3af;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+}
+
+.footer-links li:hover {
+  color: white;
+}
+
+.payment-methods {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.payment-icon {
+  width: 3rem;
+  height: 3rem;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-logo {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-bottom {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+h3{
+  margin-left: 35px;
+}

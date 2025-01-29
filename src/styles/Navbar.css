@@ -1,0 +1,141 @@
+/* Make Navbar Stick to the Top */
+.navbar {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Add padding to body to prevent content from being hidden under the fixed navbar */
+  body {
+    padding-top: 100px; /* Adjust based on navbar height */
+    margin: 0; /* Removes any extra margin */
+  }
+  
+  /* Top Navbar */
+  .navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px; /* Less padding to reduce space */
+  }
+  
+  /* Logo */
+  .logo {
+    font-size: 20px;
+    font-weight:lighter;
+    align-items: center;
+    padding-left:40;
+  }
+  
+  /* Search and Category */
+  .search-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 500px;
+    margin: 0 5px; /* Reduced margin */
+  }
+  
+  .category-dropdown {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px; /* Less space */
+  }
+  
+  .search-box {
+    position: relative;
+    flex-grow: 1;
+  }
+  
+  .search-box input {
+    width: 100%;
+    padding: 6px 30px 6px 10px; /* Less padding */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 8px; /* Less space */
+    transform: translateY(-50%);
+    color: gray;
+    cursor: pointer;
+  }
+  
+  /* Icons */
+  .icons-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Less space */
+  }
+  
+  .icon {
+    font-size: 20px; /* Smaller icons */
+    cursor: pointer;
+  }
+  
+  .icon-container {
+    position: relative;
+  }
+  
+  .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    font-size: 15px; /* Smaller */
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  
+  /* Bottom Navbar */
+  .navbar-bottom {
+    background-color: #5a54e1;
+    color: white;
+    padding: 15px 30px; /* Less space */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+  }
+  
+  .trending-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 40px; /* Less gap */
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .contact {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  

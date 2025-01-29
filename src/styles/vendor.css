@@ -1,0 +1,137 @@
+.store-list-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .store-list-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .store-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    
+  }
+  
+  .store-list-options {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  }
+  .store-list-options p {
+      margin-right: 5px;
+  }
+  
+  .filter-button {
+    padding: 8px 12px;
+    background-color: #4a94d6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+      display: flex;
+      align-items: center;
+  }
+  .sorting select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .view-icons {
+      display: flex;
+  }
+  .view-icons svg {
+      cursor: pointer;
+  }
+  .stores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .store-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+        position: relative;
+  }
+  .store-card:hover {
+      transform: translateY(-2px)
+  }
+  
+  .store-image {
+    position: relative;
+  }
+  
+  .store-image img {
+    width: 100%;
+    height: auto;
+      display: block;
+  }
+  .store-avatar {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      bottom: 10px;
+      right: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  }
+  .store-avatar img {
+      width: 100%;
+      height: auto;
+          object-fit: cover;
+  }
+  
+  .store-details {
+    padding: 15px;
+      text-align: left;
+  }
+  
+  .store-details h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  
+  .store-address {
+    font-size: 0.9rem;
+      margin-bottom: 5px;
+    color: #555;
+  }
+      .store-button {
+          position: absolute;
+          bottom: 10px;
+          left: 10px;
+          padding: 8px 12px;
+          background-color: #4a94d6;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: 0.3s;
+              display: flex;
+                  align-items: center;
+                  justify-content: center;
+      }
+          
+      .store-button:hover {
+          background-color: #3a74ad;
+      }
+  
+  .star-container {
+     display: inline-block;
+      margin-bottom: 5px;
+  }
+  
+  .star-container svg {
+    color: gold;
+      margin: 0 1px;
+  }
