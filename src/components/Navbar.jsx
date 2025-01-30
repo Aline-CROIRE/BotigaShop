@@ -1,10 +1,14 @@
-import React from "react";
-import { FiUser, FiShoppingCart, FiHeart, FiSearch, FiPhone } from "react-icons/fi";
+import React, { useState } from "react";
+import { FiUser, FiShoppingCart, FiHeart, FiSearch, FiPhone, FiMenu, FiX } from "react-icons/fi";
 import "../styles/Navbar.css"; 
-
+import { Link } from "react-router-dom";
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <nav className="navbar">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
       {/* Top Navbar */}
       <div className="navbar-top">
         {/* Logo */}
@@ -23,9 +27,9 @@ const Navbar = () => {
 
         {/* Icons */}
         <div className="icons-container">
-          <FiUser className="icon" />
+        <Link to="/register"><FiUser className="icon" /></Link>
           <div className="icon-container">
-            <FiShoppingCart className="icon" />
+          <FiShoppingCart className="icon" />
             <span className="badge">0</span>
           </div>
           <div className="icon-container">
@@ -33,10 +37,15 @@ const Navbar = () => {
             <span className="badge">0</span>
           </div>
         </div>
+
+        {/* Mobile Menu Toggle */}
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FiX /> : <FiMenu />}
+        </button>
       </div>
 
-      {/* Bottom Navbar */}
-      <div className="navbar-bottom">
+      {/* Bottom Navbar - Responsive Menu */}
+      <div className={`navbar-bottom ${menuOpen ? "open" : ""}`}>
         <button className="trending-btn">Trending Categories ▼</button>
         <div className="nav-links">
           <a href="/home">Home</a>
