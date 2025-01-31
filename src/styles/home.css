@@ -1,10 +1,10 @@
 /* BotigaClone.css */
 
-h1{
-  font-size:xx-large;
+h1 {
+  font-size: xx-large;
   font-style: oblique;
-  
 }
+
 .botiga-container {
   font-family: Arial, sans-serif;
   padding-bottom: 10px;
@@ -13,24 +13,25 @@ h1{
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
+
 .top-section {
   display: flex;
-  gap:10px;
+  gap: 10px;
   width: 100%;
   background: #f8f8f8;
   padding: 0px;
   border-radius: 5px;
   align-items: flex-start;
 }
+
 .sidebar {
-  padding:0;
-    width: 15%;
-    display: flex;
-    flex-direction: column;
-    margin-right: 30px;
-    margin-top: 100px;
+  padding: 0;
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+  margin-top: 100px;
 }
 
 .sidebar ul {
@@ -39,7 +40,7 @@ h1{
 }
 
 .sidebar li {
-  padding: 12px;;
+  padding: 12px;
   cursor: pointer;
   transition: background 0.3s;
   font-weight: 500;
@@ -51,7 +52,7 @@ h1{
 
 .hero {
   padding-top: 100px;
-  text-align:left;
+  text-align: left;
   margin-bottom: 30px;
   padding-left: 80px;
 }
@@ -63,8 +64,6 @@ h1{
   border: none;
   cursor: pointer;
   font-size: 16px;
-  
-  
 }
 
 .categories, .products, .vendors {
@@ -114,7 +113,7 @@ h2 {
 }
 
 .vendor img {
-  max-width: 150px;
+  max-width: 200px;
   height: auto;
 }
 
@@ -196,4 +195,52 @@ h2 {
   height: 150px;
   object-fit: cover;
   border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .top-section {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0;
+  }
+
+  .hero {
+    padding-top: 40px;
+    padding-left: 20px;
+  }
+
+  .vendor {
+    width: 100%;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .product-card img {
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category, .product, .vendor {
+    padding: 10px;
+  }
+
+  .category img, .product img {
+    max-width: 80px;
+  }
+
+  .vendor img {
+    max-width: 150px;
+  }
+
+  .instagram-list img {
+    width: 120px;
+    height: 120px;
+  }
 }

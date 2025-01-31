@@ -1,156 +1,123 @@
-import React from 'react';
+import React from "react";
+import "../styles/vendor.css";
+import { FaStar,FaFilter , FaArrowRight } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faStarHalfAlt, faArrowRight, faBars, faTh } from "@fortawesome/free-solid-svg-icons";
-import '../styles/vendor.css';
-import image1 from '../assets/images/product-water-bottle-420x420.jpg.webp';
-import image2 from '../assets/images/amazone-alexa.webp';
-import image3 from '../assets/images/product-wireless-headset-420x420.jpg.webp';
-import image4 from '../assets/images/product-headset-2-420x420.jpg1.webp';
-import image5 from '../assets/images/wathch.webp';
-import image11 from '../assets/images/product-water-bottle-420x420.jpg.webp';
-import image22 from '../assets/images/amazone-alexa.webp';
-import image33 from '../assets/images/product-wireless-headset-420x420.jpg.webp';
-import image44 from '../assets/images/product-headset-2-420x420.jpg1.webp';
-import image55 from '../assets/images/wathch.webp';
-
-const Vendors = () => {
-
-     const renderStars = (rating) => {
-        const fullStars = Math.floor(rating);
-        const hasHalfStar = rating % 1 !== 0;
-        const stars = [];
-
-        for (let i = 0; i < fullStars; i++) {
-          stars.push(<FontAwesomeIcon key={i} icon={faStar} />);
-        }
-        
-        if (hasHalfStar) {
-            stars.push(<FontAwesomeIcon key="half" icon={faStarHalfAlt} />);
-        }
-
-        const emptyStars = 5 - stars.length;
-        for (let i = 0; i < emptyStars; i++) {
-            stars.push(<FontAwesomeIcon key={`empty${i}`} icon={faStar} style={{ color: '#ccc' }}/>);
-        }
-    
-        return <div className="star-container">{stars}</div>;
-    };
+import  {faBars, faTh } from "@fortawesome/free-solid-svg-icons";
+import image1 from "../assets/images/vendor1.png";
+import image2 from "../assets/images/vendor2.png";
+import image3 from "../assets/images/vendor3.png";
+import image4 from "../assets/images/cropped-vendor-banner-4-2.jpg.webp";
+import image5 from "../assets/images/vendor 4.png";
+import image6 from "../assets/images/vendor5.png";
 
 
+const stores = [
+  {
+    name: "John Doe's Store",
+    location: "Central Park, New York, United States (US)",
+    rating: 4,
+    image:image1,
+    avatar: image1,
+  },
+  {
+    name: "Jessica's Store",
+    location: "Central Park, New York, United States (US)",
+    rating: 3.5,
+    image: image2,
+    avatar: image2,
+  },
+  {
+    name: "Santa Monica's Store",
+    location: "Central Park, New York, United States (US)",
+    rating: 4,
+    image: image3,
+    avatar: image3,
+  },
+  {
+    name: "Digital Good's Store",
+    location: "Central Park, New York, United States (US)",
+    rating: 4.5,
+    image: image4,
+    avatar:image4,
+  },
+  {
+    name: "The Glass Store",
+    location: "Central Park, New York, United States (US)",
+    rating: 3,
+    image: image5,
+    avatar: image5,
+  },
+  {
+    name: "Josh Doe's Store",
+    location: "Central Park, New York, United States (US)",
+    rating: 5,
+    image: image6,
+    avatar: image6,
+    phone: "123456789",
+  },
+];
+
+const Vendor = () => {
   return (
-    <div className="store-list-container">
-      <h2 className="store-list-title">Store List</h2>
-      <div className="store-list-header">
-        <p>Total stores showing: 6</p>
-        <div className="store-list-options">
-            <button className="filter-button">  <FontAwesomeIcon icon={faBars} style={{marginRight: '5px'}} />Filter</button>
-            <div className='sorting'>
-               <p>Sort by:</p> <select>
-                    <option>Most Recent</option>
-                    <option>Name</option>
-                </select>
-            </div>
-           <div className="view-icons">
+    <div className="vendor-list">
+         <h2 className="store-list-title">Store List</h2>
+
+<div className="filter-bar">
+      {/* Total Stores Count */}
+      <span className="store-count">Total stores showing: 6</span>
+
+      {/* Filter & Sorting Controls */}
+      <div className="filter-controls">
+        <button className="filter-button">
+          <FaFilter className="icon" /> Filter
+        </button>
+
+        <div className="sort-section">
+          <span className="sort-label">Sort by:</span>
+          <select className="sort-dropdown">
+            <option>Most Recent</option>
+          </select>
+        </div>
+
+        {/* Layout Switcher (Grid & List Icons) */}
+        <div className="layout-icons">
+          <faTh className="layout-icon active" />
+          <faBars className="layout-icon" />
+        </div>
+        <div className="view-icons">
                    <FontAwesomeIcon icon={faTh}  style={{marginRight: '5px'}} />
                    <FontAwesomeIcon icon={faBars} />
               </div>
-         </div>
       </div>
-      <div className="stores-grid">
-          <div className="store-card">
-            <div className="store-image">
-                  <img src={image1} alt="John Doe's Store" />
-                <div className="store-avatar">
-                    <img src={image11} alt="store avatar"/>
-               </div>
+      
+    </div>   
+      <div className="vendor-grid">
+        {stores.map((store, index) => (
+          <div className="vendor-card" key={index}>
+            <img src={store.image} alt={store.name} className="store-image" />
+            <div className="store-info">
+              <h3>{store.name}</h3>
+              <div className="rating">
+                {Array.from({ length: Math.floor(store.rating) }, (_, i) => (
+                  <FaStar key={i} className="star" />
+                ))}
+                {store.rating % 1 !== 0 && <FaStar className="half-star" />}
+              </div>
+              <p>{store.location}</p>
+              {store.phone && <p>📞 {store.phone}</p>}
             </div>
-            <div className="store-details">
-              <h3>John Doe Store</h3>
-                {renderStars(4.5)}
-                <p className="store-address">Central Park, New York, New York, United States (US)</p>
-                 <button className='store-button'> <FontAwesomeIcon icon={faArrowRight} /> </button>
+            <div className="avatar">
+              <img src={store.avatar} alt="owner" />
             </div>
-          </div>
-
-          <div className="store-card">
-            <div className="store-image">
-                <img src={image2} alt="Jessica's Store" />
-                 <div className="store-avatar">
-                    <img src={image22} alt="store avatar"/>
-                </div>
-            </div>
-            <div className="store-details">
-              <h3>Jessica  Store</h3>
-                {renderStars(4)}
-              <p className="store-address">Central Park, New York, New York, United States (US)</p>
-               <button className='store-button'> <FontAwesomeIcon icon={faArrowRight} /> </button>
+            <div className="arrow">
+              <FaArrowRight />
             </div>
           </div>
-
-          <div className="store-card">
-            <div className="store-image">
-              <img src={image3} alt="Santa Monica's Store" />
-               <div className="store-avatar">
-                 <img src={image33} alt="store avatar"/>
-                </div>
-            </div>
-            <div className="store-details">
-              <h3>Santa Monica Store</h3>
-                {renderStars(5)}
-              <p className="store-address">Central Park, New York, New York, United States (US)</p>
-              <button className='store-button'> <FontAwesomeIcon icon={faArrowRight} /> </button>
-            </div>
-          </div>
-           
-            <div className="store-card">
-            <div className="store-image">
-                  <img src={image4} alt="Digital Good's Store" />
-                  <div className="store-avatar">
-                    <img src={image44} alt="store avatar"/>
-                </div>
-            </div>
-            <div className="store-details">
-              <h3>Digital Good  Store</h3>
-                 {renderStars(4.5)}
-              <p className="store-address">Central Park, New York, New York, United States (US)</p>
-               <button className='store-button'> <FontAwesomeIcon icon={faArrowRight} /> </button>
-            </div>
-            </div>
-
-         <div className="store-card">
-            <div className="store-image">
-                  <img src={image5} alt="The Glass Store" />
-                  <div className="store-avatar">
-                    <img src={image55} alt="store avatar"/>
-                </div>
-            </div>
-            <div className="store-details">
-              <h3>The Glass Store</h3>
-                {renderStars(4)}
-              <p className="store-address">Central Park, New York, New York, United States (US)</p>
-               <button className='store-button'> <FontAwesomeIcon icon={faArrowRight} /> </button>
-            </div>
-          </div>
-
-        <div className="store-card">
-            <div className="store-image">
-                  <img src={image4} alt="Josh Doe's Store" />
-                  <div className="store-avatar">
-                    <img src={image11} alt="store avatar"/>
-                </div>
-            </div>
-            <div className="store-details">
-              <h3>Josh Doe Store</h3>
-                {renderStars(5)}
-              <p className="store-address">Central Park, New York, New York, United States (US)</p>
-                <p className="store-address">123456789</p>
-               <button className='store-button'> <FontAwesomeIcon icon={faArrowRight} /> </button>
-            </div>
-          </div>
-       
+        ))}
       </div>
     </div>
+    
   );
 };
 
-export default Vendors;
+export default Vendor;
