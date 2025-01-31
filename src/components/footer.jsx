@@ -1,5 +1,5 @@
 import React from "react";
- import'../Styles/footer.css'
+ import'../styles/footer.css'
  import pic1 from '../assets/images/footer-payment-methods-1.png.webp'
  import { FaFacebook } from "react-icons/fa";
  import { RiTwitterXFill } from "react-icons/ri";
