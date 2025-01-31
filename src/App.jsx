@@ -1,7 +1,7 @@
 
 import './App.css';
 import Layout from './components/Layout';
-import Home from './components/home';
+import Home from './components/Home';
 import Shop from './components/Shop';
 import Vendors from './components/Vendors';
 import Blog from './components/Blog';
