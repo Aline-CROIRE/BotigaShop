@@ -1,4 +1,4 @@
-import React from "react";
+
 import "../styles/vendor.css";
 import { FaStar,FaFilter , FaArrowRight } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
