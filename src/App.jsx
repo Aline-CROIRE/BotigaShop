@@ -9,7 +9,7 @@ import Vendors from './components/Vendors';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Login from './components/Login';
-import Registration from './components/Registration\'';
+import Registration from './components/Registration';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
