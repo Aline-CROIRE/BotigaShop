@@ -1,7 +1,9 @@
 
 import './App.css';
 import Layout from './components/Layout';
-import Home from './components/Home';
+
+import Home from './components/Home'
+
 import Shop from './components/Shop';
 import Vendors from './components/Vendors';
 import Blog from './components/Blog';
@@ -14,13 +16,16 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-     <Route path="/" element={<Layout/>}>
-          <Route path="/home" element={<Home />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/vendor" element={<Vendors />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
-        </Route>
+
+      <Route path="/" element={<Layout/>}>
+    <Route path="/" element={<Home />} />
+    <Route path="/shop" element={<Shop />} />
+    <Route path="/vendor" element={<Vendors />} />
+    <Route path="/blog" element={<Blog />} />
+    <Route path="/contact" element={<Contact />} />
+</Route>
+        
+
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Registration />} />
       </Routes>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/login.css';
 import logo from '../assets/images/logo.png';
 import { FcGoogle } from "react-icons/fc";
@@ -8,13 +9,17 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Add your login logic here
+   
     console.log('Username:', username);
     console.log('Password:', password);
     console.log('Remember me:', rememberMe);
+    setTimeout(() => {
+      navigate('/shop');
+    }, 500); // Redirects after 0.5 seconds
   };
 
   return (
