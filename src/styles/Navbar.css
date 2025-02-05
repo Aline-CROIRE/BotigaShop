@@ -1,193 +1,87 @@
 /* Make Navbar Stick to the Top */
 .navbar {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background-color: white;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Add padding to body to prevent content from being hidden under the fixed navbar */
-  body {
-    padding-top: 100px; /* Adjust based on navbar height */
-    margin: 0; /* Removes any extra margin */
-  }
-  
-  /* Top Navbar */
-  .navbar-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px; /* Less padding to reduce space */
-  }
-  
-  /* Logo */
-  .logo {
-    font-size: 20px;
-    font-weight:lighter;
-    align-items: center;
-    padding-left:40;
-  }
-  
-  /* Search and Category */
-  .search-container {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    max-width: 500px;
-    margin: 0 5px; /* Reduced margin */
-  }
-  
-  .category-dropdown {
-    padding: 6px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px; /* Less space */
-  }
-  
-  .search-box {
-    position: relative;
-    flex-grow: 1;
-  }
-  
-  .search-box input {
-    width: 100%;
-    padding: 6px 30px 6px 10px; /* Less padding */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .search-icon {
-    position: absolute;
-    top: 50%;
-    right: 8px; /* Less space */
-    transform: translateY(-50%);
-    color: gray;
-    cursor: pointer;
-  }
-  
-  /* Icons */
-  .icons-container {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* Less space */
-  }
-  
-  .icon {
-    font-size: 20px; /* Smaller icons */
-    cursor: pointer;
-  }
-  
-  .icon-container {
-    position: relative;
-  }
-  
-  .badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background: red;
-    color: white;
-    font-size: 15px; /* Smaller */
-    width: 14px;
-    height: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-  }
-  
-  /* Bottom Navbar */
-  .navbar-bottom {
-    background-color: #5a54e1;
-    color: white;
-    padding: 15px 30px; /* Less space */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  
-  }
-  
-  .trending-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  .nav-links {
-    display: flex;
-    gap: 40px; /* Less gap */
-  }
-  
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  
-  .nav-links a:hover {
-    text-decoration: underline;
-  }
-  
-  .contact {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
-/* Search Container */
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add padding to body to prevent content from being hidden under the fixed navbar */
+body {
+  padding-top: 100px; /* Adjust based on navbar height */
+  margin: 0; /* Removes any extra margin */
+}
+
+/* Top Navbar */
+.navbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px; /* Less padding to reduce space */
+}
+
+/* Logo */
+.logo {
+  font-size: 20px;
+  font-weight:lighter;
+  align-items: center;
+  padding-left:40;
+}
+
+/* Search and Category */
 .search-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  flex-grow: 1;
+  max-width: 500px;
+  margin: 0 5px; /* Reduced margin */
 }
 
 .category-dropdown {
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px; /* Less space */
 }
 
 .search-box {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 5px 10px;
+  position: relative;
+  flex-grow: 1;
 }
 
 .search-box input {
-  border: none;
-  outline: none;
-  font-size: 14px;
-  width: 200px;
+  width: 100%;
+  padding: 6px 30px 6px 10px; /* Less padding */
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .search-icon {
-  font-size: 16px;
-  color: #777;
+  position: absolute;
+  top: 50%;
+  right: 8px; /* Less space */
+  transform: translateY(-50%);
+  color: gray;
+  cursor: pointer;
 }
 
 /* Icons */
 .icons-container {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 20px; /* Less space */
+}
+
+.icon {
+  font-size: 20px; /* Smaller icons */
+  cursor: pointer;
 }
 
 .icon-container {
   position: relative;
-}
-
-.icon {
-  font-size: 20px;
-  color: #333;
-  cursor: pointer;
 }
 
 .badge {
@@ -196,90 +90,230 @@
   right: -5px;
   background: red;
   color: white;
-  font-size: 12px;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
+  font-size: 15px; /* Smaller */
+  width: 14px;
+  height: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/* Menu Toggle Button */
-.menu-toggle {
-  display: none;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
+  border-radius: 50%;
 }
 
 /* Bottom Navbar */
 .navbar-bottom {
+  background-color: #5a54e1;
+  color: white;
+  padding: 15px 30px; /* Less space */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+
 }
 
 .trending-btn {
-  background: #5a54f9;
-  color: white;
+  background: none;
   border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
+  color: white;
+  font-size: 14px;
   cursor: pointer;
 }
 
 .nav-links {
   display: flex;
-  gap: 15px;
+  gap: 40px; /* Less gap */
 }
 
 .nav-links a {
+  color: white;
   text-decoration: none;
-  color: #333;
   font-size: 14px;
-  font-weight: 500;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
 }
 
 .contact {
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 14px;
-  color: #333;
+  gap: 20px;
+}
+
+/* Search Container */
+.search-container {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.category-dropdown {
+padding: 8px;
+font-size: 14px;
+border: 1px solid #ddd;
+border-radius: 5px;
+}
+
+.search-box {
+display: flex;
+align-items: center;
+border: 1px solid #ddd;
+border-radius: 5px;
+padding: 5px 10px;
+}
+
+.search-box input {
+border: none;
+outline: none;
+font-size: 14px;
+width: 200px;
+}
+
+.search-icon {
+font-size: 16px;
+color: #777;
+}
+
+/* Icons */
+.icons-container {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.icon-container {
+position: relative;
+}
+
+.icon {
+font-size: 20px;
+color: #333;
+cursor: pointer;
+}
+
+.badge {
+position: absolute;
+top: -5px;
+right: -5px;
+background: red;
+color: white;
+font-size: 12px;
+border-radius: 50%;
+width: 18px;
+height: 18px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+display: none;
+font-size: 24px;
+background: none;
+border: none;
+cursor: pointer;
+}
+
+/* Bottom Navbar */
+.navbar-bottom {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px 0;
+}
+
+.trending-btn {
+background: #5a54f9;
+color: white;
+border: none;
+padding: 8px 15px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.nav-links {
+display: flex;
+gap: 15px;
+}
+
+.nav-links a {
+text-decoration: none;
+color: #333;
+font-size: 14px;
+font-weight: 500;
+}
+
+.contact {
+display: flex;
+align-items: center;
+gap: 5px;
+font-size: 14px;
+color: #333;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.6);
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+background: white;
+padding: 20px;
+border-radius: 8px;
+width: 400px;
+position: relative;
+}
+
+/* Close Button */
+.close-modal {
+position: absolute;
+top: 10px;
+right: 15px;
+background: none;
+border: none;
+font-size: 20px;
+cursor: pointer;
 }
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
-  .search-container {
-    display: none; /* Hide search bar on small screens */
-  }
+.search-container {
+  display: none; /* Hide search bar on small screens */
+}
 
-  .menu-toggle {
-    display: block;
-  }
+.menu-toggle {
+  display: block;
+}
 
-  .navbar-bottom {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    text-align: center;
-    background: white;
-    padding: 15px 0;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    z-index: 100;
-  }
+.navbar-bottom {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  background: white;
+  padding: 15px 0;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  z-index: 100;
+}
 
-  .navbar-bottom.open {
-    display: flex;
-  }
+.navbar-bottom.open {
+  display: flex;
+}
 
-  .nav-links {
-    flex-direction: column;
-    gap:10px;
-  }}
+.nav-links {
+  flex-direction: column;
+  gap:10px;
+}}

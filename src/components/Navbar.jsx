@@ -1,120 +1,80 @@
-import React, { useState } from "react";
-import {
-  FiUser,
-  FiShoppingCart,
-  FiHeart,
-  FiSearch,
-  FiPhone,
-  FiMenu,
-  FiX,
-} from "react-icons/fi";
-import "../styles/Navbar.css";
-import { Link, useNavigate } from "react-router-dom";
+import { FiUser, FiShoppingCart, FiHeart, FiSearch, FiPhone, FiMenu, FiX } from "react-icons/fi";
+import { useState } from "react";
+import "../styles/Navbar.css"; 
+import Registration from "../components/Registration"; 
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const navigate = useNavigate();
+  const [model, setModel1] = useState(0);
 
-  const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
+  const handleRegister = () => {
+    setModel1(1); // Show registration modal
   };
 
-
-  const handleSearchSubmit = (event) => {
-      event.preventDefault(); // Prevents the default form submission behavior
-    if (searchQuery.trim()) {
-      navigate(`/shop?search=${encodeURIComponent(searchQuery.trim())}`);
-    }
+  const closeRegister = () => {
+    setModel1(0); // Hide registration modal
   };
-
-
-  const handleCategoryChange = (event) => {
-      const selectedCategory = event.target.value;
-       if (selectedCategory !== "Trending Categories" && selectedCategory !== "All Categories" ) {
-           navigate(`/shop?category=${encodeURIComponent(selectedCategory)}`);
-    }
-  };
-
 
   return (
-    <nav className="navbar">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      {/* Top Navbar */}
-      <div className="navbar-top">
-        {/* Logo */}
-        <h1 className="logo">Botiga</h1>
-        {/* Search & Categories */}
-        <div className="search-container">
-          <select className="category-dropdown" onChange={handleCategoryChange}>
-            <option>All Categories</option>
-            <option>Un Categorised</option>
-              <option>Body Lotion</option>
-              <option>Electronics</option>
-              <option>General</option>
-              <option>Shoes</option>
-              <option>Watches</option>
-              <option>Women Clothes</option>
-              <option>Fashion</option>
-              <option>Sports</option>
-              <option>Computer Gadgets</option>
-          </select>
-          <form className="search-box" onSubmit={handleSearchSubmit}>
-            <input
-              type="text"
-              placeholder="Search products..."
-              value={searchQuery}
-              onChange={handleSearchChange}
-            />
-            <button type="submit" className="search-icon-button">
-               <FiSearch className="search-icon" />
-            </button>
-           </form>
-        </div>
-        {/* Icons */}
-        <div className="icons-container">
-        <Link to="/register"><FiUser className="icon" /></Link>
-        
-          <div className="icon-container">
-            <FiShoppingCart className="icon" />
-            <span className="badge">0</span>
+    <>
+      <nav className="navbar">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {/* Top Navbar */}
+        <div className="navbar-top">
+          <h1 className="logo">Botiga</h1>
+
+          {/* Search & Categories */}
+          <div className="search-container">
+            <select className="category-dropdown">
+              <option>All Categories</option>
+            </select>
+            <div className="search-box">
+              <input type="text" placeholder="Search products..." />
+              <FiSearch className="search-icon" />
+            </div>
           </div>
-          <div className="icon-container">
-            <FiHeart className="icon" />
-            <span className="badge">0</span>
+
+          {/* Icons */}
+          <div className="icons-container">
+            <FiUser className="icon" onClick={handleRegister} />
+            <div className="icon-container">
+              <FiShoppingCart className="icon" />
+              <span className="badge">0</span>
+            </div>
+            <div className="icon-container">
+              <FiHeart className="icon" />
+              <span className="badge">0</span>
+            </div>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <FiX /> : <FiMenu />}
+          </button>
+        </div>
+
+        {/* Bottom Navbar */}
+        <div className={`navbar-bottom ${menuOpen ? "open" : ""}`}>
+          <button className="trending-btn">Trending Categories ▼</button>
+          <div className="nav-links">
+            <a href="/">Home</a>
+            <a href="/shop">Shop</a>
+            <a href="/vendor">Vendors</a>
+            <a href="/blog">Blog</a>
+            <a href="/contact">Contact</a>
+            <a href='/view'>View</a>
+          </div>
+          <div className="contact">
+            <FiPhone />
+            <span>800-123-4567</span>
           </div>
         </div>
-        {/* Mobile Menu Toggle */}
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <FiX /> : <FiMenu />}
-        </button>
-      </div>
-      {/* Bottom Navbar - Responsive Menu */}
-      <div className={`navbar-bottom ${menuOpen ? "open" : ""}`}>
-        <select className="trending-btn" onChange={handleCategoryChange}>
-            <option>Trending Categories</option>
-            <option>Body Lotion</option>
-            <option>Electronics</option>
-            <option>General</option>
-            <option>Shoes</option>
-            <option>Watches</option>
-            <option>Women Clothes</option>
-            <option>Fashion</option>
-            <option>Sports</option>
-          </select>
-        <div className="nav-links">
-          <Link to='/home'>Home</Link>
-          <Link to="/shop">Shop</Link>
-          <Link to="/vendor">Vendors</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/contact">Contact</Link>
-        </div>
-        <div className="contact">
-          <FiPhone />
-          <span>800-123-4567</span>
-        </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Show Registration Modal Only When model is 1 */}
+      {model === 1 && <Registration closeRegister={closeRegister} />}
+    </>
   );
 };
 
