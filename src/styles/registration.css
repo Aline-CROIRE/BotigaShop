@@ -1,151 +1,190 @@
 /* registration.css */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9;
-  }
-  
-  /* Centering registration container */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Registration Overlay */
+.registration-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it's above everything */
+}
+
+/* Registration Container (Card Wrapper) */
+.registration-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1001; /* Placed above overlay */
+}
+
+/* Close Button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+/* Registration Card (Content Inside the Container) */
+.registration-card {
+  text-align: center;
+}
+
+.registration-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.registration-logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.registration-title {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Registration Form */
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.registration-input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.registration-input:focus {
+  outline: none; /* Remove default focus outline */
+  border-color:#5a54e1;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); /* Optional: Add a more subtle focus effect */
+}
+
+
+.registration-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.registration-button:hover {
+  background-color: #555;
+}
+
+/* Social Registration */
+.social-registration {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.google-registration,
+.apple-registration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+  gap: 10px;
+}
+
+.google-registration {
+  background-color: white;
+  color: #333;  /* Ensure text is visible */
+}
+
+.apple-registration {
+  background-color: black;
+  color: white;
+}
+
+.google-registration:hover {
+  background-color: #f0f0f0;
+}
+
+.apple-registration:hover {
+  background-color: #333;
+}
+
+/* Register link */
+.login-link {
+  color: #5a54e1;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block; /* Make it easier to click */
+  padding: 5px 10px; /* Add some clickable area */
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* Error Message */
+.error-message {
+  color: red;
+  margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
   .registration-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
-    background-color: #f5f5f5;
+    width: 90%; /* Take up more screen width on smaller screens */
+    padding: 15px;
   }
-  
-  /* Registration Card */
-  .registration-card {
-    width: 100%;
-    max-width: 400px;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    text-align: center;
-  }
-  
-  /* Header */
-  .registration-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .registration-logo {
-    width: 80px;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
-  .registration-title {
-    font-size: 22px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  /* Form */
-  .registration-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  /* Inputs */
   .registration-input {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: 0.3s;
+    padding: 8px;
+    font-size: 14px;
   }
-  
-  .registration-input:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-  }
-  
-  /* Registration button */
   .registration-button {
-    padding: 14px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    background-color: #007bff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
+    padding: 10px;
+    font-size: 14px;
   }
-  
-  .registration-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Social Registration */
-  .social-registration {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .google-registration,
-  .apple-registration {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-    gap: 10px;
-  }
-  
-  .google-registration {
-    background-color: white;
-  }
-  
-  .apple-registration {
-    background-color: black;
-    color: white;
-  }
-  
-  .google-registration:hover {
-    background-color: #f0f0f0;
-  }
-  
-  .apple-registration:hover {
-    background-color: #333;
-  }
-  
-  /* Register link */
-  .login-link {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .login-link:hover {
-    text-decoration: underline;
-  }
-  
-  /* Responsive */
-  @media (max-width: 500px) {
-    .registration-card {
-      padding: 20px;
-    }
-  }
-  
+}

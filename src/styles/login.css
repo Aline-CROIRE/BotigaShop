@@ -1,179 +1,163 @@
-/* login.css */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* Fullscreen overlay */
+.login-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it overlays everything */
+}
+
+/* Container for login modal */
+.login-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Header (logo + title) */
+.login-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.login-logo {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.login-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Form styling */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.login-button {
+  background-color: #5a54e1;
+  color: white;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #5a54e1;
+}
+
+/* Remember me & Forgot password */
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+}
+
+.remember-checkbox {
+  margin-right: 5px;
+}
+
+/* Social login buttons */
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.google-login,
+.github-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.google-login {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.github-login {
+  background-color: #222;
+  color: white;
+}
+
+/* Sign-up link */
+.sign-up-link {
+  color: #5a54e1;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sign-up-link:hover {
+  text-decoration: underline;
+}
+
+/* Close button */
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.close-button svg {
+  color:#5a54e1;
+  transition: 0.3s;
+}
+
+.close-button:hover svg {
+  color: #000;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Centering login container */
-  .login-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
-    background-color: #f5f5f5;
-  }
-  
-  /* Login Card */
-  .login-card {
-    width: 100%;
-    max-width: 400px;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    text-align: center;
-  }
-  
-  /* Header */
-  .login-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .login-logo {
-    width: 80px;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
-  .login-title {
-    font-size: 22px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  /* Form */
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  /* Inputs */
-  .login-input {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: 0.3s;
-  }
-  
-  .login-input:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-  }
-  
-  /* Login button */
-  .login-button {
-    padding: 14px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    background-color: #007bff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .login-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Options: Remember Me & Forgot Password */
-  .login-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
-  .remember-me {
-    display: flex;
-    align-items: center;
-  }
-  
-  .remember-checkbox {
-    margin-right: 5px;
-  }
-  
-  .forgot-password {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-  }
-  
-  .forgot-password:hover {
-    text-decoration: underline;
-  }
-  
-  /* Social Login */
-  .social-login {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .google-login,
-  .apple-login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-    gap: 10px;
-  }
-  
-  .google-login {
-    background-color: white;
-  }
-  
-  .apple-login {
-    background-color: black;
-    color: white;
-  }
-  
-  .google-login:hover {
-    background-color: #f0f0f0;
-  }
-  
-  .apple-login:hover {
-    background-color: #333;
-  }
-  
-  /* Register link */
-  .sign-up-link {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .sign-up-link:hover {
-    text-decoration: underline;
-  }
-  
-  /* Responsive */
-  @media (max-width: 500px) {
-    .login-card {
-      padding: 20px;
-    }
-  }
-  
+}
