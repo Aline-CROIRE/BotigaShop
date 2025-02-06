@@ -1,7 +1,8 @@
-
 import '../styles/home.css';
-import { FaChevronRight, FaStar,FaRegStar } from "react-icons/fa";
+import { FaChevronRight, FaStar, FaRegStar } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import bodyLotion from '../assets/images/body_Lotion.jpg.webp';
 import sports from '../assets/images/cropped-vendor-banner-4-2.jpg.webp';
@@ -34,100 +35,96 @@ const vendors = [
     { name: "John Doe’s Store", location: "New York, NY", image: store6 },
   ];
 
+const newArrivalProducts = [
+    { id: 1, name: "All In One Bottle", priceRange: "$22.00 - $35.00", image: bottle, rating: 4, colors: ["#8c5b2d", "#43674b", "#e0e0e0"] },
+    { id: 2, name: "Amazon Alexa", priceRange: "$49.00 - $60.00", image: alexa, rating: 3, colors: ["#e0e0e0"] },
+    { id: 3, name: "Headset Gamer Legion", priceRange: "$22.00 - $55.00", image: headset, rating: 5, colors: ["#8c5b2d", "#e0e0e0", "#a0a0a0"] },
+];
+
+const exploreProducts = [
+    { id: 4, name: "All In One Bottle", priceRange: "$22.00 - $35.00", image: bottle, rating: 3, colors: ["#8c5b2d", "#43674b", "#e0e0e0"] },
+    { id: 5, name: "Amazon Alexa", priceRange: "$49.00 - $60.00", image: alexa, rating: 4, colors: ["#e0e0e0"] },
+    { id: 6, name: "Headset Gamer Legion", priceRange: "$22.00 - $55.00", image: headset, rating: 5, colors: ["#8c5b2d", "#e0e0e0", "#a0a0a0"] },
+];
+
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = (id) => {
+    navigate(`/product/${id}`); // Corrected navigation path
+  };
+
   return (
     <div className="botiga-container">
-        <div className="top-section">
-            <div className="sidebar">
-                <ul>
-                    <li>Electronics</li>
-                    <li>Computer Gadget</li>
-                    <li>Fashion</li>
-                    <li>Body Lotion</li>
-                    <li>Woman Clothes</li>
-                    <li>Shoes</li>
-                    <li>Watches</li>
-                </ul>
+      <div className="top-section">
+        <div className="sidebar">
+          <ul>
+            <li>Electronics</li>
+            <li>Computer Gadget</li>
+            <li>Fashion</li>
+            <li>Body Lotion</li>
+            <li>Woman Clothes</li>
+            <li>Shoes</li>
+            <li>Watches</li>
+          </ul>
 
-            </div>
-            <section className="hero">
-                <h1>Explore our latest and<br/> greatest electronics</h1>
-                <button className="shop-btn">SHOP NOW</button>
-            </section>
         </div>
-        <section className="categories">
-            <h2>Popular Categories</h2>
-            <div className="category-list">
-                <div className="category"><img src={bodyLotion} alt="Body Lotion" /><p>Body Lotion</p></div>
-                <div className="category"><img src={sports} alt="Sports" /><p>Sports</p></div>
-                <div className="category"><img src={computerGadget} alt="Computer Gadget" /><p>Computer Gadget</p></div>
-                <div className="category"><img src={electronics} alt="Electronics" /><p>Electronics</p></div>
-                <div className="category"><img src={watch} alt="Watch" /><p>Watch</p></div>
-                <div className="category"><img src={womanClothes} alt="Woman Clothes" /><p>Woman Clothes</p></div>
-            </div>
+        <section className="hero">
+          <h1>Explore our latest and<br /> greatest electronics</h1>
+          <button className="shop-btn">SHOP NOW</button>
         </section>
+      </div>
+      <section className="categories">
+        <h2>Popular Categories</h2>
+        <div className="category-list">
+          <div className="category"><img src={bodyLotion} alt="Body Lotion" /><p>Body Lotion</p></div>
+          <div className="category"><img src={sports} alt="Sports" /><p>Sports</p></div>
+          <div className="category"><img src={computerGadget} alt="Computer Gadget" /><p>Computer Gadget</p></div>
+          <div className="category"><img src={electronics} alt="Electronics" /><p>Electronics</p></div>
+          <div className="category"><img src={watch} alt="Watch" /><p>Watch</p></div>
+          <div className="category"><img src={womanClothes} alt="Woman Clothes" /><p>Woman Clothes</p></div>
+        </div>
+      </section>
 
-        <section className="products">
-            <h2>New Arrival Products</h2>
-            <div className="product-list">
-                <div className="product">
-                      <div className="image-container">
-                          <img src={bottle} alt="All In One Bottle" />
-                          <div className='overlay-options'>
-                                <button>SELECT OPTIONS</button>
-                              </div>
-                            <div className='quick-view'>
-                                  QUICK VIEW <FaSearch/>
-                              </div>
-                       </div>
-
-                    <p>All In One Bottle</p><span>$22.00 - $35.00</span><div className="rating-color"><div className="rating">{[...Array(5)].map((_, i) => <FaStar key={i} />)}</div><div className="color-options">
-                        <div className="color-option" style={{ backgroundColor: "#8c5b2d" }}></div>
-                        <div className="color-option" style={{ backgroundColor: "#43674b" }}></div>
-                        <div className="color-option" style={{ backgroundColor: "#e0e0e0" }}></div>
-                    </div></div>
-
-                  </div>
-                <div className="product">
-                      <div className="image-container">
-                          <img src={alexa} alt="Amazon Alexa" />
-                            <div className='overlay-options'>
-                                <button>SELECT OPTIONS</button>
-                            </div>
-                             <div className='quick-view'>
-                                  QUICK VIEW <FaSearch/>
-                              </div>
-                    </div>
-
-                  <p>Amazon Alexa</p><span>$49.00 - $60.00</span><div className="rating-color"><div className="rating">{[...Array(5)].map((_, i) => <FaStar key={i} />)}</div>
-                        <div className="color-options">
-                            <div className="color-option" style={{ backgroundColor: "#e0e0e0" }}></div>
-                       </div></div>
-
-                  </div>
-                <div className="product">
-                       <div className="image-container">
-                          <img src={headset} alt="Headset Gamer Legion" />
-                              <div className='overlay-options'>
-                                <button>SELECT OPTIONS</button>
-                             </div>
-                           <div className='quick-view'>
-                                  QUICK VIEW <FaSearch/>
-                              </div>
-                        </div>
-                  <p>Headset Gamer Legion</p><span>$22.00 - $55.00</span><div className="rating-color"><div className="rating">{[...Array(5)].map((_, i) => <FaStar key={i} />)}</div>
-                        <div className="color-options">
-                            <div className="color-option" style={{ backgroundColor: "#8c5b2d" }}></div>
-                            <div className="color-option" style={{ backgroundColor: "#e0e0e0" }}></div>
-                            <div className="color-option" style={{ backgroundColor: "#a0a0a0" }}></div>
-                       </div></div>
-
+      <section className="products">
+        <h2>New Arrival Products</h2>
+        <div className="product-list">
+          {newArrivalProducts.map(product => (
+            <div className="product" key={product.id}>
+              <div className="image-container">
+                <img src={product.image} alt={product.name} />
+                <div className='overlay-options'>
+                 {/*  <Link to={`/product/${product.id}`}>SELECT OPTIONS</Link> */}
+                    <button onClick={() => handleNavigate(product.id)}>SELECT OPTIONS</button>
                 </div>
+                <div className='quick-view' onClick={() => handleNavigate(product.id)}>
+                  QUICK VIEW <FaSearch />
+                </div>
+              </div>
+
+              <p>{product.name}</p>
+              <span>{product.priceRange}</span>
+              <div className="rating-color">
+                <div className="rating">
+                  {[...Array(5)].map((_, i) => (
+                    i < product.rating ? <FaStar key={i} /> : <FaRegStar key={i} />
+                  ))}
+                </div>
+                <div className="color-options">
+                  {product.colors.map((color, index) => (
+                    <div className="color-option" key={index} style={{ backgroundColor: color }}></div>
+                  ))}
+                </div>
+              </div>
+
             </div>
-            <button className="shop-btn">SHOP NOW</button>
-        </section>
-        <section className="vendor-section">
+          ))}
+        </div>
+        <button className="shop-btn">SHOP NOW</button>
+      </section>
+
+       <section className="vendor-section">
       <h2 className="vendor-title">Our Vendor List</h2>
       <ul className="vendor-grid">
         {vendors.map((vendor, index) => (
@@ -142,115 +139,71 @@ const Home = () => {
         ))}
       </ul>
       </section>
-       
 
-        <section className="why-choose-us">
-            <h2>Why People Choose Us</h2>
-            <div className="why-list">
-                <div className="why-item">
-                    <h3>Easy Returns</h3>
-                    <p>Our return policy is simple and that is why customers love our shop.</p>
+      <section className="why-choose-us">
+        <h2>Why People Choose Us</h2>
+        <div className="why-list">
+          <div className="why-item">
+            <h3>Easy Returns</h3>
+            <p>Our return policy is simple and that is why customers love our shop.</p>
+          </div>
+          <div className="why-item">
+            <h3>Customer Service</h3>
+            <p>Our team helps by finding and solving any issues customers face.</p>
+          </div>
+          <div className="why-item">
+            <h3>High Quality</h3>
+            <p>We guarantee top quality products that our customers trust.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="products">
+        <h2>Explore Our Products</h2>
+        <div className="product-list">
+          {exploreProducts.map(product => (
+            <div className="product" key={product.id}>
+              <div className="image-container">
+                <img src={product.image} alt={product.name} />
+                <div className='overlay-options'>
+                
+                   <button onClick={() => handleNavigate(product.id)}>SELECT OPTIONS</button>
                 </div>
-                <div className="why-item">
-                    <h3>Customer Service</h3>
-                    <p>Our team helps by finding and solving any issues customers face.</p>
+                <div className='quick-view' onClick={() => handleNavigate(product.id)}>
+                  QUICK VIEW <FaSearch />
                 </div>
-                <div className="why-item">
-                    <h3>High Quality</h3>
-                    <p>We guarantee top quality products that our customers trust.</p>
+              </div>
+              <h4>{product.name}</h4>
+              <p>{product.priceRange}</p>
+              <div className="rating-color">
+                <div className="rating">
+                  {[...Array(5)].map((_, i) => (
+                    i < product.rating ? <FaStar key={i} /> : <FaRegStar key={i} />
+                  ))}
                 </div>
+                <div className="color-options">
+                  {product.colors.map((color, index) => (
+                    <div className="color-option" key={index} style={{ backgroundColor: color }}></div>
+                  ))}
+                </div>
+              </div>
             </div>
-        </section>
+          ))}
+        </div>
+      </section>
 
-        <section className="products">
-            <h2>Explore Our Products</h2>
-            <div className="product-list">
-                <div className="product">
-                       <div className="image-container">
-                            <img src={bottle} alt="All In One Bottle" />
-                              <div className='overlay-options'>
-                                  <button>SELECT OPTIONS</button>
-                              </div>
-                           <div className='quick-view'>
-                                  QUICK VIEW <FaSearch/>
-                              </div>
-                          </div>
-                    <h4>All In One Bottle</h4>
-                    <p>$22.00 - $35.00</p>
-                      <div className="rating-color">
-                    <div className="rating">
-                      <FaStar /><FaStar /><FaStar /><FaRegStar /><FaRegStar />
-                       </div>
-                   <div className="color-options">
-                        <div className="color-option" style={{ backgroundColor: "#8c5b2d" }}></div>
-                        <div className="color-option" style={{ backgroundColor: "#43674b" }}></div>
-                        <div className="color-option" style={{ backgroundColor: "#e0e0e0" }}></div>
-                    </div>
-                      </div>
-                </div>
-                <div className="product">
-                     <div className="image-container">
-                             <img src={alexa} alt="Amazon Alexa" />
-                           <div className='overlay-options'>
-                                <button>SELECT OPTIONS</button>
-                              </div>
-                             <div className='quick-view'>
-                                  QUICK VIEW <FaSearch/>
-                              </div>
-                       </div>
-                    <h4>Amazon Alexa</h4>
-                    <p>$49.00 - $60.00</p>
-                      <div className="rating-color">
-                         <div className="rating">
-                      <FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar />
-                      </div>
-                         <div className="color-options">
-                            <div className="color-option" style={{ backgroundColor: "#e0e0e0" }}></div>
-                       </div>
-                      </div>
-
-                </div>
-                <div className="product">
-                       <div className="image-container">
-                           <img src={headset} alt="Headset Gamer Legion" />
-                             <div className='overlay-options'>
-                                <button>SELECT OPTIONS</button>
-                             </div>
-                            <div className='quick-view'>
-                                  QUICK VIEW <FaSearch/>
-                              </div>
-                        </div>
-                    <h4>Headset Gamer Legion</h4>
-                    <p>$22.00 - $55.00</p>
-                     <div className="rating-color">
-                        <div className="rating">
-                           <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
-                        </div>
-                     <div className="color-options">
-                         <div className="color-option" style={{ backgroundColor: "#8c5b2d" }}></div>
-                            <div className="color-option" style={{ backgroundColor: "#e0e0e0" }}></div>
-                         <div className="color-option" style={{ backgroundColor: "#a0a0a0" }}></div>
-                      </div>
-                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section className="instagram-section">
-            <h2>Follow us on @instagram</h2>
-            <div className="instagram-list">
-                <img src={instagram1} alt="Instagram 1" />
-
-                <img src={instagram2} alt="Instagram 2" />
-                <img src={instagram3} alt="Instagram 3" />
-                <img src={instagram4} alt="Instagram 4" />
-                <img src={instagram5} alt="Instagram 5" />
-                <img src={instagram6} alt="Instagram 6" />
-            </div>
-        </section>
+      <section className="instagram-section">
+        <h2>Follow us on @instagram</h2>
+        <div className="instagram-list">
+          <img src={instagram1} alt="Instagram 1" />
+          <img src={instagram2} alt="Instagram 2" />
+          <img src={instagram3} alt="Instagram 3" />
+          <img src={instagram4} alt="Instagram 4" />
+          <img src={instagram5} alt="Instagram 5" />
+          <img src={instagram6} alt="Instagram 6" />
+        </div>
+      </section>
     </div>
-
-
   );
 };
 

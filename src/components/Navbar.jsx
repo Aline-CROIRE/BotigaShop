@@ -63,7 +63,7 @@ const Navbar = () => {
             <a href="/vendor">Vendors</a>
             <a href="/blog">Blog</a>
             <a href="/contact">Contact</a>
-            <a href='/view'>View</a>
+           
           </div>
           <div className="contact">
             <FiPhone />
