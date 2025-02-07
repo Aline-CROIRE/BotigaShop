@@ -42,9 +42,9 @@ const newArrivalProducts = [
 ];
 
 const exploreProducts = [
-    { id: 4, name: "All In One Bottle", priceRange: "$22.00 - $35.00", image: bottle, rating: 3, colors: ["#8c5b2d", "#43674b", "#e0e0e0"] },
-    { id: 5, name: "Amazon Alexa", priceRange: "$49.00 - $60.00", image: alexa, rating: 4, colors: ["#e0e0e0"] },
-    { id: 6, name: "Headset Gamer Legion", priceRange: "$22.00 - $55.00", image: headset, rating: 5, colors: ["#8c5b2d", "#e0e0e0", "#a0a0a0"] },
+    { id: 1, name: "All In One Bottle", priceRange: "$22.00 - $35.00", image: bottle, rating: 3, colors: ["#8c5b2d", "#43674b", "#e0e0e0"] },
+    { id: 2, name: "Amazon Alexa", priceRange: "$49.00 - $60.00", image: alexa, rating: 4, colors: ["#e0e0e0"] },
+    { id: 3, name: "Headset Gamer Legion", priceRange: "$22.00 - $55.00", image: headset, rating: 5, colors: ["#8c5b2d", "#e0e0e0", "#a0a0a0"] },
 ];
 
 
@@ -166,8 +166,8 @@ const Home = () => {
               <div className="image-container">
                 <img src={product.image} alt={product.name} />
                 <div className='overlay-options'>
-                
-                   <button onClick={() => handleNavigate(product.id)}>SELECT OPTIONS</button>
+              
+                    <button onClick={() => handleNavigate(product.id)}>SELECT OPTIONS</button>
                 </div>
                 <div className='quick-view' onClick={() => handleNavigate(product.id)}>
                   QUICK VIEW <FaSearch />
