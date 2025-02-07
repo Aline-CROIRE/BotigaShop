@@ -2,6 +2,7 @@ import { FiUser, FiShoppingCart, FiHeart, FiSearch, FiPhone, FiMenu, FiX } from 
 import { useState } from "react";
 import { useLocation } from "react-router";
 import { useEffect } from "react";
+import { Link } from "react-router";
 import "../styles/Navbar.css"; 
 import { useNavigate } from "react-router";
 import Registration from "../components/Registration"; 
