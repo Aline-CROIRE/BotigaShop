@@ -10,6 +10,7 @@ import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Login from './components/Login';
 import Registration from './components/Registration';
+import ProductDetail from './components/ProductDetails';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Route path="/vendor" element={<Vendors />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/contact" element={<Contact/>} />
+      <Route path="/product/:id" element={<ProductDetail />} /> 
       </Route>
        <Route path="/login" element={<Login />} />
        <Route path="/register" element={<Registration />} />

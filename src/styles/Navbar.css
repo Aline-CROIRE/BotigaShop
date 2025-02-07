@@ -169,8 +169,10 @@ width: 200px;
 }
 
 .search-icon {
-font-size: 16px;
+font-size: 20px;
 color: #777;
+
+
 }
 
 /* Icons */
@@ -223,12 +225,13 @@ padding: 10px 0;
 }
 
 .trending-btn {
-background: #5a54f9;
-color: white;
+background: #f1f0fc;
+color: rgb(18, 16, 16);
 border: none;
 padding: 8px 15px;
 border-radius: 5px;
 cursor: pointer;
+margin-left: 100px;
 }
 
 .nav-links {
@@ -317,3 +320,5 @@ cursor: pointer;
   flex-direction: column;
   gap:10px;
 }}
+
+
