@@ -132,11 +132,11 @@ const Navbar = () => {
 
 
           <div className="nav-links">
-            <a href="/">Home</a>
-            <a href="/shop">Shop</a>
-            <a href="/vendor">Vendors</a>
-            <a href="/blog">Blog</a>
-            <a href="/contact">Contact</a>
+            <Link to="/">Home</Link>
+            <Link to="/shop">Shop</Link>
+            <Link to="/vendor">Vendors</Link>
+            <Link to="/blog">Blog</Link>
+            <Link to="/contact">Contact</Link>
            
           </div>
           <div className="contact">
