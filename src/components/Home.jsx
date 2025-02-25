@@ -72,7 +72,7 @@ const Home = () => {
         </div>
         <section className="hero">
           <h1>Explore our latest and<br /> greatest electronics</h1>
-          <button className="shop-btn">SHOP NOW</button>
+          <button  className="shop-btn">SHOP NOW</button>
         </section>
       </div>
       <section className="categories">

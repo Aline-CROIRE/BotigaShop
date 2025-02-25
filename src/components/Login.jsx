@@ -7,19 +7,45 @@ import { FaGithub } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 
 const Login = ({ closeSignin, openRegister }) => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(""); // Error message state
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Username:", username);
-    console.log("Password:", password);
-    console.log("Remember me:", rememberMe);
-    setTimeout(() => {
+    setErrorMessage(""); // Clear any previous error messages
+
+    try {
+      const response = await fetch("https://botigashop-api.onrender.com/api/users/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        setErrorMessage(errorData.message || "Login failed. Please check your credentials.");
+        return;
+      }
+
+      // Login successful
+      const data = await response.json();
+      const token = data.token; // Assuming API returns a token
+      localStorage.setItem("token", token); // Store token in local storage
+      console.log("Login successful, token:", token);
+
+      // Close the login overlay
+      closeSignin();
+
+      // Redirect to /shop
       navigate("/shop");
-    }, 500); // Redirects after 0.5 seconds
+
+    } catch (error) {
+      console.error("Login error:", error);
+      setErrorMessage("An unexpected error occurred during login.");
+    }
   };
 
   return (
@@ -34,12 +60,13 @@ const Login = ({ closeSignin, openRegister }) => {
             <h2 className="login-title">Welcome back!</h2>
           </div>
           <form className="login-form" onSubmit={handleLogin}>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
             <input
-              type="text"
+              type="email"
               className="login-input"
-              placeholder="Username or Email"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
             <input
@@ -63,9 +90,9 @@ const Login = ({ closeSignin, openRegister }) => {
                 />
                 <label className="remember-label">Remember for 30 days</label>
               </div>
-              <a href="#" className="forgot-password">
+              <button type="button" className="forgot-password">
                 Forgot password?
-              </a>
+              </button>
             </div>
           </form>
           <div className="social-login">
@@ -74,14 +101,15 @@ const Login = ({ closeSignin, openRegister }) => {
               Sign in with Google
             </button>
             <button className="github-login">
-              <FaGithub /> Sign in with GitHub
+              <FaGithub />
+              Sign in with GitHub
             </button>
           </div>
           <div className="login-options">
             <span>Don't have an account?</span>
-            <a className="sign-up-link" onClick={openRegister}>
+            <button className="sign-up-link" onClick={openRegister}>
               Sign Up
-            </a>
+            </button>
           </div>
         </div>
       </div>

@@ -1,3 +1,7 @@
+//fetching
+"use client"
+
+
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faStarHalfAlt, faBars, faTh, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
@@ -24,117 +28,32 @@ const Shop = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [sortOption, setSortOption] = useState('default');
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      title: "All In One Bottle",
-      price: "$22.00 - $55.00",
-      rating: 4.5,
-      image: image1,
-      colors: ["#8c5b2d", "#43674b", "#e0e0e0"],
-      category: "General",
-      popularity: 3,
-      dateAdded: new Date('2024-01-15'),
-      description: "A versatile bottle for all your hydration needs."
-    },
-    {
-      id: 2,
-      title: "Amazon Alexa",
-      price: "$49.00 - $69.00",
-      rating: 5,
-      image: image2,
-      colors: ["#e0e0e0"],
-      category: "Electronics",
-      popularity: 1,
-      dateAdded: new Date('2024-02-01'),
-      description: "Smart home assistant with voice control."
-    },
-    {
-      id: 3,
-      title: "Headset Gamer Legion",
-      price: "$22.00 - $55.00",
-      rating: 4,
-      image: image3,
-      colors: ["#8c5b2d", "#e0e0e0", "#a0a0a0"],
-      category: "Computer Gadgets",
-      popularity: 5,
-      dateAdded: new Date('2024-02-10'),
-      description: "Immersive gaming headset for competitive play."
-    },
-    {
-      id: 4,
-      title: "Headset Gamer Legion Plus",
-      price: "$22.00 - $55.00",
-      rating: 4,
-      image: image4,
-      colors: ["#8c5b2d", "#e0e0e0", "#a0a0a0"],
-      category: "Computer Gadgets",
-      popularity: 2,
-      dateAdded: new Date('2024-01-25'),
-      description: "Enhanced gaming headset with premium features."
-    },
-    {
-      id: 5,
-      title: "Jdoes Styling Watch",
-      price: "$22.00 - $33.00",
-      rating: 5,
-      image: image5,
-      colors: ["#4a94d6", "#e0e0e0"],
-      category: "Watches",
-      popularity: 4,
-      dateAdded: new Date('2024-02-15'),
-      description: "Stylish watch for any occasion."
+  const [products, setProducts] = useState([    {      id: 1,      title: "All In One Bottle",      price: "$22.00 - $55.00",      rating: 4.5,      image: image1,      colors: ["#8c5b2d", "#43674b", "#e0e0e0"],      category: "General",      popularity: 3,      dateAdded: new Date('2024-01-15'),      description: "A versatile bottle for all your hydration needs."    },    {      id: 2,      title: "Amazon Alexa",      price: "$49.00 - $69.00",      rating: 5,      image: image2,      colors: ["#e0e0e0"],      category: "Electronics",      popularity: 1,      dateAdded: new Date('2024-02-01'),      description: "Smart home assistant with voice control."    },    {      id: 3,      title: "Headset Gamer Legion",      price: "$22.00 - $55.00",      rating: 4,      image: image3,      colors: ["#8c5b2d", "#e0e0e0", "#a0a0a0"],      category: "Computer Gadgets",      popularity: 5,      dateAdded: new Date('2024-02-10'),      description: "Immersive gaming headset for competitive play."    },    {      id: 4,      title: "Headset Gamer Legion Plus",      price: "$22.00 - $55.00",      rating: 4,      image: image4,      colors: ["#8c5b2d", "#e0e0e0", "#a0a0a0"],      category: "Computer Gadgets",      popularity: 2,      dateAdded: new Date('2024-01-25'),      description: "Enhanced gaming headset with premium features."    },    {      id: 5,      title: "Jdoes Styling Watch",      price: "$22.00 - $33.00",      rating: 5,      image: image5,      colors: ["#4a94d6", "#e0e0e0"],      category: "Watches",      popularity: 4,      dateAdded: new Date('2024-02-15'),      description: "Stylish watch for any occasion."    },    {      id: 6,      title: "Jessi Cam Recorder",      price: "$22.00 - $55.00",      rating: 4,      image: image6,      colors: ["#8c5b2d", "#e0e0e0", "#a0a0a0"],      category: "Electronics",      popularity: 3,      dateAdded: new Date('2023-12-30'),      description: "Compact and reliable camera recorder."    },    {      id: 7,      title: "John Sport Shoes",      price: "$22.00 - $55.00",      rating: 5,      image: image7,      colors: ["#e0e0e0", "#a0a0a0", "#d45500"],      category: "Shoes",      popularity: 5,      dateAdded: new Date('2024-02-20'),      description: "Comfortable and durable sport shoes for athletes."    },    {      id: 8,      title: "Mouse Razer 3000DPI",      price: "$22.00 - $55.00",      rating: 4,      image: image8,      colors: ["#8c5b2d", "#e0e0e0", "#a0a0a0"],      category: "Computer Gadgets",      popularity: 2,      dateAdded: new Date('2023-12-25'),      description: "High-precision gaming mouse with customizable DPI."    },    {      id: 9,      title: "Santa Monica Facial Cream",      price: "$22.00 - $55.00",      rating: 4,      image: image9,      colors: ["#d45500", "#8c5b2d", "#e0e0e0"],      category: "Body Lotion",      popularity: 3,      dateAdded: new Date('2024-01-10'),      description: "Rejuvenating facial cream for healthy skin."    }  ]); // Initialize with your existing products
+  const [loading, setLoading] = useState(false); // Add a loading state
+  const [error, setError] = useState(null);
 
-    },
-    {
-      id: 6,
-      title: "Jessi Cam Recorder",
-      price: "$22.00 - $55.00",
-      rating: 4,
-      image: image6,
-      colors: ["#8c5b2d", "#e0e0e0", "#a0a0a0"],
-      category: "Electronics",
-      popularity: 3,
-      dateAdded: new Date('2023-12-30'),
-      description: "Compact and reliable camera recorder."
-    },
-    {
-      id: 7,
-      title: "John Sport Shoes",
-      price: "$22.00 - $55.00",
-      rating: 5,
-      image: image7,
-      colors: ["#e0e0e0", "#a0a0a0", "#d45500"],
-      category: "Shoes",
-      popularity: 5,
-      dateAdded: new Date('2024-02-20'),
-      description: "Comfortable and durable sport shoes for athletes."
-    },
-    {
-      id: 8,
-      title: "Mouse Razer 3000DPI",
-      price: "$22.00 - $55.00",
-      rating: 4,
-      image: image8,
-      colors: ["#8c5b2d", "#e0e0e0", "#a0a0a0"],
-      category: "Computer Gadgets",
-      popularity: 2,
-      dateAdded: new Date('2023-12-25'),
-      description: "High-precision gaming mouse with customizable DPI."
-    },
-    {
-      id: 9,
-      title: "Santa Monica Facial Cream",
-      price: "$22.00 - $55.00",
-      rating: 4,
-      image: image9,
-      colors: ["#d45500", "#8c5b2d", "#e0e0e0"],
-      category: "Body Lotion",
-      popularity: 3,
-      dateAdded: new Date('2024-01-10'),
-      description: "Rejuvenating facial cream for healthy skin."
-    }
-  ]);  // Moved products to state
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading(true); // Set loading to true while fetching
+      setError(null); // Clear any previous errors
+      try {
+        const response = await fetch('https://botigashop-api.onrender.com/api/products');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        // Append the fetched products to the existing products
+        setProducts(prevProducts => [...prevProducts, ...data]);
+      } catch (err) {
+        console.error("Could not fetch products:", err);
+        setError("Failed to load products. Please try again later.");
+      } finally {
+        setLoading(false); // Set loading back to false after fetching (success or failure)
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -144,56 +63,67 @@ const Shop = () => {
     setSelectedCategory(categoryParam || null);
     setSearchQuery(searchParam || '');
 
-  }, [location.search]); //Only update category and search on location change
+  }, [location.search]);
 
   useEffect(() => {
     applyFilters();
-  }, [selectedCategory, searchQuery, selectedColors, selectedRating, priceRange, sortOption, products]);  //Now apply filter when these change
+  }, [selectedCategory, searchQuery, selectedColors, selectedRating, priceRange, sortOption, products]);
 
   const applyFilters = () => {
-    let filtered = [...products]; // Create a copy to avoid modifying the original
+    let filtered = [...products];
 
-    // Category filter
     if (selectedCategory) {
       filtered = filtered.filter(product =>
         product.category && product.category.toLowerCase() === selectedCategory.toLowerCase()
       );
     }
 
-    // Search filter
     if (searchQuery) {
       filtered = filtered.filter(product =>
         product.title.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
 
-    // Color filter
     if (selectedColors.length > 0) {
       filtered = filtered.filter(product =>
         product.colors.some(color => selectedColors.includes(color))
       );
     }
 
-    // Rating filter
     if (selectedRating) {
       filtered = filtered.filter(product => Math.floor(product.rating) === selectedRating);
     }
 
-    //Price filter
     filtered = filtered.filter(product => {
-      const productPrice = parseFloat(product.price.split(" - ")[1].replace("$", ""));
-      return productPrice >= priceRange[0] && productPrice <= priceRange[1];
+      if (!product.price || typeof product.price !== 'string' || !product.price.includes(" - ")) {
+        return false;
+      }
+      const priceParts = product.price.split(" - ");
+      if (priceParts.length < 2) {
+        return false;
+      }
+
+      const maxPrice = parseFloat(priceParts[1].replace("$", ""));
+
+      return !isNaN(maxPrice) && maxPrice >= priceRange[0] && maxPrice <= priceRange[1];
     });
 
-    // Sorting
     if (sortOption === 'price-low-to-high') {
       filtered.sort((a, b) => {
+        if (!a.price || typeof a.price !== 'string' || !a.price.includes(" - ") ||
+          !b.price || typeof b.price !== 'string' || !b.price.includes(" - ")) {
+          return 0;
+        }
         const priceA = parseFloat(a.price.split(" - ")[0].replace("$", ""));
         const priceB = parseFloat(b.price.split(" - ")[0].replace("$", ""));
         return priceA - priceB;
       });
     } else if (sortOption === 'price-high-to-low') {
       filtered.sort((a, b) => {
+        if (!a.price || typeof a.price !== 'string' || !a.price.includes(" - ") ||
+          !b.price || typeof b.price !== 'string' || !b.price.includes(" - ")) {
+          return 0;
+        }
         const priceA = parseFloat(a.price.split(" - ")[0].replace("$", ""));
         const priceB = parseFloat(b.price.split(" - ")[0].replace("$", ""));
         return priceB - priceA;
@@ -202,7 +132,7 @@ const Shop = () => {
       filtered.sort((a, b) => b.popularity - a.popularity);
     }
     else if (sortOption === 'latest') {
-      filtered.sort((a, b) => b.dateAdded - a.dateAdded);
+      filtered.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
     }
 
     setFilteredProducts(filtered);
@@ -232,18 +162,15 @@ const Shop = () => {
       newColors.push(color);
     }
     setSelectedColors(newColors);
-    // updateQueryParam({ colors: newColors.length > 0 ? newColors.join(',') : null });  // If you wanted to persist color filter in the URL as well.
   }
 
   const handleRatingClick = (rating) => {
     setSelectedRating(rating === selectedRating ? null : rating);
-    // updateQueryParam({ rating: rating === selectedRating ? null : rating }); // Similar to color, add rating to URL if desired
   }
 
   const handlePriceChange = (e) => {
     const value = parseInt(e.target.value, 10);
     setPriceRange([0, value]);
-    // updateQueryParam({ priceMax: value });  // Price too if you wish
   }
 
   const handleSortChange = (e) => {
@@ -333,6 +260,8 @@ const Shop = () => {
 
         <div className="products">
           <div className="products-header">
+             {loading && <p>Loading products...</p>}
+             {error && <p>Error: {error}</p>}
             <p>Showing 1-{filteredProducts.length} of {products.length} results</p>
             <div className="sorting">
               <select value={sortOption} onChange={handleSortChange}>
