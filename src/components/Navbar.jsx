@@ -1,9 +1,11 @@
+
 import { FiUser, FiShoppingCart, FiHeart, FiSearch, FiPhone, FiMenu, FiX, FiLogOut, FiUserCheck } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 import Registration from "../components/Registration";
 import Login from "../components/Login";
+
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
